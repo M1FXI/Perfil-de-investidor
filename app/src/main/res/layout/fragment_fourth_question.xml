@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FourthQuestionFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.perfildeinvestidor.ViewModel" />
+
+        <variable
+            name="FourthQuestionFragment"
+            type="com.example.perfildeinvestidor.FourthQuestionFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtQuestion1"
+                style="@android:style/Widget.Material.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. Considerando seus rendimentos regulares, qual a porcentagem você
+ pretende reservar para aplicações financeiras?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/question_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtQuestion1">
+
+                <RadioButton
+                    android:id="@+id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[3].equals(0)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(2, 0)}"
+                    android:text="No máximo 25%" />
+
+                <RadioButton
+                    android:id="@+id/b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[3].equals(2)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(3, 2)}"
+                    android:text="Entre 25,01 e 50%" />
+
+                <RadioButton
+                    android:id="@+id/c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[3].equals(4)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(3, 4)}"
+                    android:text="Acima de 50%" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:onClick="@{() -> FourthQuestionFragment.goToNextScreen(4)}"
+                android:text="Próximo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="379dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question_answers" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

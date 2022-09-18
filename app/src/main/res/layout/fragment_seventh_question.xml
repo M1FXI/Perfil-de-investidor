@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".seventhQuestionFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.perfildeinvestidor.ViewModel" />
+
+        <variable
+            name="seventhQuestionFragment"
+            type="com.example.perfildeinvestidor.SeventhQuestionFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtQuestion1"
+                style="@android:style/Widget.Material.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7. Em relação as aplicações e rendimentos, em qual dessas situações você
+ se enquadra?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/question_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtQuestion1">
+
+                <RadioButton
+                    android:id="@+id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[6].equals(0)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(6, 0)}"
+                    android:text="Conto com o rendimento dessas aplicações para complementar minha
+renda mensal" />
+
+                <RadioButton
+                    android:id="@+id/b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[6].equals(2)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(6, 2)}"
+                    android:text="Eventualmente posso resgatar parte das aplicações para fazer frente aos
+meus gastos. Contudo, não tenho intenção de resgatar no curto prazo e
+pretendo fazer aplicações regulares" />
+
+                <RadioButton
+                    android:id="@+id/c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[6].equals(3)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(6, 3)}"
+                    android:text="Não tenho intenção de resgatar no curto prazo, mas não pretendo realizar
+novas aplicações" />
+
+                <RadioButton
+                    android:id="@+id/d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[6].equals(4)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(6, 4)}"
+                    android:text="Não tenho intenção de resgatar no curto prazo e ainda pretendo fazer
+aplicações regulares" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:onClick="@{() -> seventhQuestionFragment.goToNextScreen(7)}"
+                android:text="Próximo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="379dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question_answers" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

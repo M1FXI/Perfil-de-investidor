@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ninthQuestionFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.perfildeinvestidor.ViewModel" />
+
+        <variable
+            name="ninthQuestionFragment"
+            type="com.example.perfildeinvestidor.NinthQuestionFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtQuestion1"
+                style="@android:style/Widget.Material.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9. Qual o valor aproximado do seu patrimônio?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/question_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtQuestion1">
+
+                <RadioButton
+                    android:id="@+id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[8].equals(0)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(8, 0)}"
+                    android:text="Até R$ 10.000" />
+
+                <RadioButton
+                    android:id="@+id/b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[8].equals(1)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(8, 1)}"
+                    android:text="De R$ 10.001 até R$ 100.000" />
+
+                <RadioButton
+                    android:id="@+id/c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[8].equals(2)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(8, 2)}"
+                    android:text="De R$ 100.001 até R$ 500.000" />
+
+                <RadioButton
+                    android:id="@+id/d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[8].equals(4)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(8, 4)}"
+                    android:text="De R$ 500.001 até R$ 1.000.000" />
+
+                <RadioButton
+                    android:id="@+id/e"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[8].equals(5)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(8, 5)}"
+                    android:text="Acima de R$ 1.000.001" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:onClick="@{() -> ninthQuestionFragment.goToNextScreen()}"
+                android:text="Próximo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="379dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question_answers" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

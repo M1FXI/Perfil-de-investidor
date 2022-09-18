@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.perfildeinvestidor.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_firstQuestionFragment"
+            app:destination="@id/firstQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondQuestionFragment"
+        android:name="com.example.perfildeinvestidor.SecondQuestionFragment"
+        android:label="secondQuestionFragment" >
+        <action
+            android:id="@+id/action_secondQuestionFragment_to_thirdQuestionFragment"
+            app:destination="@id/thirdQuestionFragment" />
+        <action
+            android:id="@+id/action_secondQuestionFragment_to_firstQuestionFragment"
+            app:destination="@id/firstQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdQuestionFragment"
+        android:name="com.example.perfildeinvestidor.ThirdQuestionFragment"
+        android:label="fragment_third_question"
+        tools:layout="@layout/fragment_third_question" >
+        <action
+            android:id="@+id/action_thirdQuestionFragment_to_fourthQuestionFragment"
+            app:destination="@id/fourthQuestionFragment" />
+        <action
+            android:id="@+id/action_thirdQuestionFragment_to_secondQuestionFragment"
+            app:destination="@id/secondQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthQuestionFragment"
+        android:name="com.example.perfildeinvestidor.FourthQuestionFragment"
+        android:label="fragment_fourth_question"
+        tools:layout="@layout/fragment_fourth_question" >
+        <action
+            android:id="@+id/action_fourthQuestionFragment_to_fifthQuestionFragment"
+            app:destination="@id/fifthQuestionFragment" />
+        <action
+            android:id="@+id/action_fourthQuestionFragment_to_thirdQuestionFragment"
+            app:destination="@id/thirdQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthQuestionFragment"
+        android:name="com.example.perfildeinvestidor.FifthQuestionFragment"
+        android:label="fragment_fifth_question"
+        tools:layout="@layout/fragment_fifth_question" >
+        <action
+            android:id="@+id/action_fifthQuestionFragment_to_sixthQuestionFragment"
+            app:destination="@id/sixthQuestionFragment" />
+        <action
+            android:id="@+id/action_fifthQuestionFragment_to_fourthQuestionFragment"
+            app:destination="@id/fourthQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sixthQuestionFragment"
+        android:name="com.example.perfildeinvestidor.SixthQuestionFragment"
+        android:label="fragment_sixth_question"
+        tools:layout="@layout/fragment_sixth_question" >
+        <action
+            android:id="@+id/action_sixthQuestionFragment_to_seventhQuestionFragment"
+            app:destination="@id/seventhQuestionFragment" />
+        <action
+            android:id="@+id/action_sixthQuestionFragment_to_fifthQuestionFragment"
+            app:destination="@id/fifthQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seventhQuestionFragment"
+        android:name="com.example.perfildeinvestidor.SeventhQuestionFragment"
+        android:label="fragment_seventh_question"
+        tools:layout="@layout/fragment_seventh_question" >
+        <action
+            android:id="@+id/action_seventhQuestionFragment_to_eighthQuestionFragment"
+            app:destination="@id/eighthQuestionFragment" />
+        <action
+            android:id="@+id/action_seventhQuestionFragment_to_sixthQuestionFragment"
+            app:destination="@id/sixthQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resoultFragment2"
+        android:name="com.example.perfildeinvestidor.ResultQuestionFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resoultFragment2_to_ninthQuestionFragment"
+            app:destination="@id/ninthQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ninthQuestionFragment"
+        android:name="com.example.perfildeinvestidor.NinthQuestionFragment"
+        android:label="ninthQuestionFragment" >
+        <action
+            android:id="@+id/action_ninthQuestionFragment_to_resoultFragment2"
+            app:destination="@id/resoultFragment2" />
+        <action
+            android:id="@+id/action_ninthQuestionFragment_to_eighthQuestionFragment"
+            app:destination="@id/eighthQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eighthQuestionFragment"
+        android:name="com.example.perfildeinvestidor.EighthQuestionFragment"
+        android:label="EightQuestionFragment" >
+        <action
+            android:id="@+id/action_eighthQuestionFragment_to_ninthQuestionFragment"
+            app:destination="@id/ninthQuestionFragment" />
+        <action
+            android:id="@+id/action_eighthQuestionFragment_to_seventhQuestionFragment"
+            app:destination="@id/seventhQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstQuestionFragment"
+        android:name="com.example.perfildeinvestidor.FirstQuestionFragment"
+        android:label="FirstQuestionFragment" >
+        <action
+            android:id="@+id/action_firstQuestionFragment_to_secondQuestionFragment"
+            app:destination="@id/secondQuestionFragment" />
+        <action
+            android:id="@+id/action_firstQuestionFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fifthQuestionFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.perfildeinvestidor.ViewModel" />
+
+        <variable
+            name="fifthQuestionFragment"
+            type="com.example.perfildeinvestidor.FifthQuestionFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtQuestion1"
+                style="@android:style/Widget.Material.TextView.SpinnerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. Caso as suas aplicações sofressem uma queda superior a 30%,
+ o que você faria?"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/question_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="36dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtQuestion1">
+
+                <RadioButton
+                    android:id="@+id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[4].equals(0)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(4, 0)}"
+                    android:text="Resgataria toda a aplicação e aplicaria na poupança" />
+
+                <RadioButton
+                    android:id="@+id/b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[4].equals(2)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(4, 2)}"
+                    android:text="Manteria aplicação aguardando uma melhora do mercado" />
+
+                <RadioButton
+                    android:id="@+id/c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.listOfAnswersScore[4].equals(4)}"
+                    android:onClick="@{() -> viewModel.setQuestionScore(4, 4)}"
+                    android:text="Aumentaria a aplicação para aproveitar as oportunidades do mercado" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:onClick="@{() -> fifthQuestionFragment.goToNextScreen(5)}"
+                android:text="Próximo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="379dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question_answers" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
